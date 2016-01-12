@@ -69,7 +69,7 @@ Blockly.Blocks['postaction_left'] = {
     }
 };
 
-Blockly.Blocks['action'] = {
+Blockly.Blocks['action_topdown'] = {
     init: function () {
         this.appendDummyInput()
             .appendField("动作")
@@ -77,6 +77,18 @@ Blockly.Blocks['action'] = {
         this.setInputsInline(false);
         this.setPreviousStatement(true);
         this.setNextStatement(true);
+        this.setColour(120);
+        this.setTooltip('');
+        this.setHelpUrl('http://www.example.com/');
+    }
+};
+Blockly.Blocks['action_left'] = {
+    init: function () {
+        this.appendDummyInput()
+            .appendField("动作")
+            .appendField(new Blockly.FieldDropdown([["option", "OPTIONNAME"], ["option", "OPTIONNAME"], ["option", "OPTIONNAME"]]), "NAME");
+        this.setInputsInline(false);
+        this.setOutput(true);
         this.setColour(120);
         this.setTooltip('');
         this.setHelpUrl('http://www.example.com/');
@@ -204,7 +216,6 @@ Blockly.Blocks['selectormonitor_topdown'] = {
         this.setHelpUrl('http://www.example.com/');
     }
 };
-
 
 
 Blockly.Blocks['condition_left'] = {
