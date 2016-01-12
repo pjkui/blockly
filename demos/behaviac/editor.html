@@ -6,6 +6,7 @@
     <script src="../../blockly_compressed.js"></script>
     <script src="../../blocks_compressed.js"></script>
     <script src="../../msg/js/en.js"></script>
+    <script src="blocks.js"></script>
     <style>
         body {
             background-color: #fff;
@@ -139,6 +140,7 @@
     </category>
     <category name="Variables" custom="VARIABLE"></category>
     <category name="Functions" custom="PROCEDURE"></category>
+
     <sep></sep>
     <category name="Library" expanded="true">
         <category name="Randomize">
@@ -339,9 +341,60 @@
             </block>
         </category>
     </category>
+    <sep></sep>
+    <category name="Behaviac">
+        <category name="Agent">
+            <block type="agent"></block>
+            <block type="controls_if"></block>
+        </category>
+        <category name="Attachments">
+            <block type="preaction_topdown"></block>
+            <block type="preaction_left"></block>
+            <block type="postaction_topdown"></block>
+            <block type="postaction_left"></block>
+        </category>
+        <category name="Sequence">
+
+            <block type="sequence_topdown"></block>
+        </category>
+        <category name="Condition">
+            <block type="condition_left"></block>
+            <block type="condition_topdown"></block>
+        </category>
+        <category name="Action">
+            <block type="action"></block>
+            <block type="noop_left"></block>
+            <block type="noop_topdown"></block>
+            <block type="wait_left"></block>
+            <block type="wait_topdown"></block>
+
+        </category>
+        <category name="Composites">
+            <category name="Parallel">
+                <block type="parallel_topdown"></block>
+            </category>
+        </category>
+        <category name="eventHanding">
+            <block type="withpecondition_topdown"></block>
+            <block type="selectormonitor_topdown">
+                <value name="WAITFORSIGNAL">
+                    <block type="waitforsignal_topdown">
+                        <next>
+                            <block type="waitforsignal_topdown"></block>
+                        </next>
+                    </block>
+
+                </value>
+
+            </block>
+            <block type="waitforsignal_topdown"></block>
+        </category>
+
+    </category>
 </xml>
 
 <script>
+
     var workspace = Blockly.inject('blocklyDiv',
             {
                 media: '../../media/',
