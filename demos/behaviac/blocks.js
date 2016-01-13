@@ -151,7 +151,7 @@ Blockly.Blocks['wait_topdown'] = {
     }
 };
 //Parallel
-Blockly.Blocks['parallel_topdown'] = {
+Blockly.Blocks['selector_topdown'] = {
     init: function () {
         this.appendStatementInput("actions")
             .appendField(new Blockly.FieldDropdown([["Selector", "0"], ["SelectorStochastic", "1"], ["SelectorProbability", "2"]]), "type");
@@ -175,7 +175,18 @@ Blockly.Blocks['sequence_topdown'] = {
         this.setHelpUrl('http://www.example.com/');
     }
 };
-
+//Parallel
+Blockly.Blocks['parallel_topdown']={
+    init: function() {
+        this.appendStatementInput("action")
+            .appendField("Parallel");
+        this.setPreviousStatement(true);
+        this.setNextStatement(true);
+        this.setColour(290);
+        this.setTooltip('');
+        this.setHelpUrl('http://www.example.com/');
+    }
+}
 //this.appendStatementInput('STACK');
 Blockly.Blocks['withpecondition_topdown'] = {
     init: function () {
@@ -239,6 +250,48 @@ Blockly.Blocks['condition_topdown'] = {
         this.setInputsInline(true);
         this.setPreviousStatement(true);
         this.setNextStatement(true);
+        this.setTooltip('');
+        this.setHelpUrl('http://www.example.com/');
+    }
+};
+
+Blockly.Blocks['log_topdown'] = {
+    init: function() {
+        this.appendValueInput("TEXT")
+            .setCheck("text")
+            .appendField("Log");
+        this.setPreviousStatement(true);
+        this.setNextStatement(true);
+        this.setColour(120);
+        this.setTooltip('');
+        this.setHelpUrl('http://www.example.com/');
+    }
+};
+
+Blockly.Blocks['log_left'] = {
+    init: function() {
+        this.appendValueInput("TEXT")
+            .setCheck("text")
+            .appendField("Log");
+        this.setOutput(true);
+        this.setColour(120);
+        this.setTooltip('');
+        this.setHelpUrl('http://www.example.com/');
+    }
+};
+//Countlimit
+Blockly.Blocks['loop_topdown'] = {
+    init: function() {
+        this.appendValueInput("TIMES")
+            .setCheck("Number")
+            .appendField(new Blockly.FieldDropdown([["LoopUntil", "0"], ["FailureUntil", "1"], ["SuccessUntil", "2"], ["CountLimit", "3"]]), "NAME");
+        this.appendDummyInput()
+            .appendField("times");
+        this.appendStatementInput("child");
+        this.setInputsInline(true);
+        this.setPreviousStatement(true);
+        this.setNextStatement(true);
+        this.setColour(120);
         this.setTooltip('');
         this.setHelpUrl('http://www.example.com/');
     }
