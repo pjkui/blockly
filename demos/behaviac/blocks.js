@@ -356,7 +356,7 @@ Blockly.JavaScript['condition_left'] = function (block) {
         "\treturn true;\n" +
         "}\n" +
         "else{\n" +
-        "\treturn false;\n" +
+        "return false;\n" +
         "}\n";
     return [code, Blockly.JavaScript.ORDER_NONE];;
 };
@@ -376,9 +376,9 @@ Blockly.Blocks['condition_topdown'] = {
     }
 };
 Blockly.JavaScript['condition_topdown'] = function (block) {
-    var right = Blockly.JavaScript.valueToCode(block, "right", Blockly.JavaScript.ORDER_NONE);
-    var operator = Blockly.JavaScript.valueToCode(block, "opt", Blockly.JavaScript.ORDER_NONE);
-    var left = Blockly.JavaScript.valueToCode(block, "left", Blockly.JavaScript.ORDER_NONE);
+    var right = Blockly.JavaScript.valueToCode(block, "right", Blockly.JavaScript.ORDER_ATOMIC);
+    var operator = block.getFieldValue('opt');
+    var left = Blockly.JavaScript.valueToCode(block, "left", Blockly.JavaScript.ORDER_ATOMIC);
     var code = "console.log('condition_topdown doing');\n" +
         "if (" + right + " " + operator + "  " + left + "){\n" +
         "return true;\n" +
